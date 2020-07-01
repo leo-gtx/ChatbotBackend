@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "jasper-dvrtid",
+  "private_key_id": "2bb0627c3ff984d2660ae46852202b7ead6cc006",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCmJNMw493S//PM\n3VNFKVIwh6WHa1bOAKctBjy+0X4AtztvEtRQt0WUilpuzRaD00ZRhAQBGudfONDb\n5b0/7U7HJgWlxbCldNzmgVcMT9Zkv2Ubc2CyJKRkqVN5dAh1FbfGwmxTOHZRaslU\nUw74iZ5YImMk+3hG5NNgivKWgi6+XcwHM4MsIhj/LLxHlRU6XbEwrr/yUjdrRaIP\nweh1TqmMspF+JbRfmCy/0oIfgiMuHBJoj4I0eeOXR1TA1BOpVZNhFZUr4r7eCIqB\na6mM7/gU7G+2nTpM+U7/MRDOQ7af2Rd6ErSgb/oGmeE5P59l/ecXdB0TZsN6DvyJ\nMRGJs5w9AgMBAAECggEABmDbisD0vyj8Xx0QGVOgyCQtAqnoRzhXMq9OnbTFNZnT\nOkxqwj6G+VDmb+KHvr/Zrz92N+SkhU9VFVwYi9+8aoDXLqoMQg3efSryAJMAFBYU\n95zSVYR6mzK09bCysmwHBiZoqjk8sZt75zTZGkmOPqvzSnQtBeu7AbXT4ltVGBHJ\n5w4ixZbA1jPC40ThK43pYdJmc144EGMms+l9b1/2YPiY40LTIm68akVmtvWuXvXg\nQrQD3Q33w0Q2ud413HCJxkPI1WWY9BXuju5FdN5T6Wy0UYKWY25xLOjcQ0/silZG\nFV0hDd/kVZaevKW/n89HbCgDh047gbZSe+vvi/WPsQKBgQDdrBEdum+rxr6+HicU\nHBwaJRugcbsoN68aWAsOzSBENkX0ypSufjXbb0HLKnd1NT8q/h0M8cwi0fp7JFGH\noXIEOFiS8UJkvqqv27QYupw72arOhIgxVCDKoPAG4Djm/3VJSYOvsLFfov2Ysqgh\nn1u/uxrorxz3J9swrTbKYyWarwKBgQC/32dmST/QbheZU1+3ADtjynpExBVJIvsm\nioSnGf9puDUSVmTS4MlnmNNckUmg4gvJpW7w4NBDspSveqJR98Wfj4yrAwcVK0hr\n21sjbWoKZlXNVTHxKTGWV4j1J9EIYDSNG3mcCHmYnEoJhBmzv2tJmxVEvaXmX9qk\n92g4gmxC0wKBgQC3CdScSozZN2PbEoTMKyXdRNTaF+8ll01EIH0I/MHu8S20ou5A\nY0DPb7/RJcC8DHqbYnbUcHhSLDZ7JhMYPmwqJeildQeQrou8aFr+rGBDX0mV+4OF\nz+S/zEJGOzFhNIFBQa22Dd14jdp/Es6X7MFSwQnIJohxYPyx5eU/Gr07SwKBgAv+\nqlchoySjjUQfiy9Ei3HsmYItA+ujjTHWnP5ZSLdSNbckwX7RYKXiTuxNhN3S48vC\nVNIoK7zfsB3cO8OGCsuzzKZwNQQkxY1AlEz9rRBjX1/LwKiD2767UCuLRq0QXpin\nrA2OFhPtSU+Y+4ZaJBng4Q6AEJv7SA7iDJjjxmLTAoGBAKGbfKeRrL9Uq+U+6uTu\nydE7Vme6z+WgFJuBHNWTv/44owXzP/rez1EE0Zdrub6Z9UZy/bKLAYubVHZbPXfQ\nq8e7aIFV5Zx/CuCDjVT71iHRLA2i6HbHo15FhZ7f5956jhsRBRRiY7yZAtJsIQmE\nQ1i90SdNGWNgh4lmzbHkN/Uj\n-----END PRIVATE KEY-----\n",
+  "client_email": "dialogflow-wmilqn@jasper-dvrtid.iam.gserviceaccount.com",
+  "client_id": "102984400642892010678",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/dialogflow-wmilqn%40jasper-dvrtid.iam.gserviceaccount.com"
+}
