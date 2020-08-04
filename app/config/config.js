@@ -1,7 +1,7 @@
 var config = {
     VERSION: 1,
     BUILD: 1,
-    URL: 'https://studentinformationchatbot.herokuapp.com',
+    URL: 'http://127.0.0.1' || process.env.URL,
     API_PATH: '/api',
     PORT: process.env.PORT || 8080,
     DB: {
@@ -22,8 +22,7 @@ var config = {
      * Get the http URLGoalKicker.com – Node.js Notes for Professionals 184
      */
     getHTTPUrl: function() {
-        //return 'http://' + this.URL + ":" + this.PORT;
-        return this.URL;
+        return 'http://' + this.URL + ":" + this.PORT;
     }
 }
 module.exports = config;
