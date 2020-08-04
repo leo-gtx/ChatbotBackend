@@ -1,21 +1,28 @@
 {
-  "name": "inquiry_software",
-  "version": "1.0.0",
-  "description": "College inquiry system using chatbot",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Nguefack Leonel",
-  "license": "ISC",
-  "dependencies": {
-    "@google-cloud/dialogflow": "^2.0.0",
-    "body-parser": "^1.19.0",
-    "dialogflow": "^1.2.0",
-    "express": "^4.17.1",
-    "formidable": "^1.2.2",
-    "nodemon": "^2.0.4",
-    "pm2": "^4.4.0",
-    "uuid": "^8.2.0"
-  }
+    "name": "inquiry_software",
+    "version": "1.0.0",
+    "description": "Chatbot application able to answer the student's queries.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Nguefack Leonel",
+    "license": "SFA",
+    "dependencies": {
+        "@google-cloud/dialogflow": "^2.0.0",
+        "admin-bro": "^2.9.0",
+        "admin-bro-expressjs": "^2.1.1",
+        "admin-bro-mongoose": "^0.5.2",
+        "body-parser": "^1.19.0",
+        "dialogflow": "^1.2.0",
+        "express": "^4.17.1",
+        "express-formidable": "^1.2.0",
+        "express-session": "^1.17.1",
+        "formidable": "^1.2.2",
+        "mongoose": "^5.9.25",
+        "nodemon": "^2.0.4",
+        "pm2": "^4.4.0",
+        "request": "^2.88.2",
+        "uuid": "^8.2.0"
+    }
 }
