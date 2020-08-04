@@ -8,13 +8,15 @@ var config = {
         //MongoDB configuration
         HOST: 'localhost',
         PORT: '27017',
-        DATABASE: 'studentInformationDB'
+        DATABASE: 'studentInformationDB',
+        USER: 'heroku_5dt5dshz',
+        PASSWORD: 'ndl40320'
     },
     /*
      * Get DB Connection String for connecting to MongoDB database
      */
     getDBString: function() {
-        return 'mongodb://' + this.DB.HOST + ':' + this.DB.PORT + '/' + this.DB.DATABASE;
+        return 'mongodb://' + this.USER + ':' + this.PASSWORD + '@ds247141.mlab.com:47141/heroku_5dt5dshz';
     },
     /*
      * Get the http URLGoalKicker.com – Node.js Notes for Professionals 184
