@@ -1,5 +1,5 @@
 var express = require('express');
-var UserMiddleware = require('../middleware/UserMiddleware');
+var UserMiddleware = require('../middleware/userMiddleware');
 
 var UserRoutes = function(app) {
     var router = express.Router();
