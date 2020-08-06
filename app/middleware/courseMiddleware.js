@@ -36,9 +36,13 @@ var CourseMiddleware = {
         const response = "This is the query results : ";
 
         const responseObj = {
-            fulfillmentText: response,
-            fulfillmentMessages: [{ text: { text: [results] } }],
-            source: ""
+            fulfillmentMessages: [{
+                text: {
+                    text: [
+                        results.description
+                    ]
+                }
+            }]
         }
         console.log('This is the response to dialogflow');
         console.log(responseObj);

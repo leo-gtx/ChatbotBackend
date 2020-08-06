@@ -15,6 +15,7 @@ var config = {
      */
     getDBString: function() {
         return process.env.MONGODB_URI || 'mongodb://' + this.DB.HOST + ':' + this.DB.PORT + '/' + this.DB.DATABASE;
+
     },
     /*
      * Get the http URLGoalKicker.com – Node.js Notes for Professionals 184
