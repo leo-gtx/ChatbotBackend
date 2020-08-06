@@ -26,7 +26,7 @@ var CourseMiddleware = {
             startDate: req.body.queryResult.parameters['date-period'].startDate,
             endDate: req.body.queryResult.parameters['date-period'].endDate
         }
-        var results = await Course.find({}, function(err, docs) {
+        var results = await Course.findOne({}, function(err, docs) {
             if (err) {
                 res.json(err);
             }
@@ -39,7 +39,7 @@ var CourseMiddleware = {
             fulfillmentMessages: [{
                 text: {
                     text: [
-                        results.description
+                        results
                     ]
                 }
             }]
