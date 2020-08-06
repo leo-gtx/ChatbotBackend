@@ -33,13 +33,13 @@ var CourseMiddleware = {
             docs = docs.filter(doc => doc.date >= filter.startDate && doc.date <= filter.endDate);
 
         });
-        //const response = "This is the query results : ";
+        const response = results[0].description || "There is no result for this query";
 
         const responseObj = {
             fulfillmentMessages: [{
                 text: {
                     text: [
-                        results[0].description
+                        response
                     ]
                 }
             }]
