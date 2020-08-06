@@ -39,7 +39,7 @@ var CourseMiddleware = {
             fulfillmentMessages: [{
                 text: {
                     text: [
-                        results
+                        results.description
                     ]
                 }
             }]
