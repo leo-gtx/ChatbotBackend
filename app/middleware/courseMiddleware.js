@@ -31,13 +31,13 @@ var CourseMiddleware = {
                 res.json(err);
             }
             console.log(docs);
-            docs = docs.filter(doc => doc.date >= filter.startDate && doc.date <= filter.endDate);
+            docs = docs.filter(doc => doc.date >= filter.startDate && doc.date <= filter.endDate)[0];
 
         });
         var response;
         console.log(results);
         if (results) {
-            response = results[0].description;
+            response = results.description;
 
         } else {
             response = "I have no result for this query";
