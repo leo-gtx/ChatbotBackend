@@ -33,7 +33,14 @@ var CourseMiddleware = {
             docs = docs.filter(doc => doc.date >= filter.startDate && doc.date <= filter.endDate);
 
         });
-        const response = results[0].description || "There is no result for this query";
+        const response;
+        console.log(results);
+        if (results) {
+            response = results[0].description;
+
+        } else {
+            response = "There is no result for this query";
+        }
 
         const responseObj = {
             fulfillmentMessages: [{
