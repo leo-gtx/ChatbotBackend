@@ -30,6 +30,7 @@ var CourseMiddleware = {
             if (err) {
                 res.json(err);
             }
+            console.log(docs);
             docs = docs.filter(doc => doc.date >= filter.startDate && doc.date <= filter.endDate);
 
         });
@@ -39,7 +40,7 @@ var CourseMiddleware = {
             response = results[0].description;
 
         } else {
-            response = "There is no result for this query";
+            response = "I have no result for this query";
         }
 
         const responseObj = {
