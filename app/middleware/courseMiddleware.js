@@ -26,20 +26,20 @@ var CourseMiddleware = {
             startDate: req.body.queryResult.parameters['date-period'].startDate,
             endDate: req.body.queryResult.parameters['date-period'].endDate
         }
-        var results = await Course.findOne({}, function(err, docs) {
+        var results = await Course.find({}).sort({ date: 'desc' }).exec(function(err, docs) {
             if (err) {
                 res.json(err);
             }
             docs = docs.filter(doc => doc.date >= filter.startDate && doc.date <= filter.endDate);
 
         });
-        const response = "This is the query results : ";
+        //const response = "This is the query results : ";
 
         const responseObj = {
             fulfillmentMessages: [{
                 text: {
                     text: [
-                        results.description
+                        results[0].description
                     ]
                 }
             }]
