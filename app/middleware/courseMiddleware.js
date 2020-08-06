@@ -33,7 +33,7 @@ var CourseMiddleware = {
             docs = docs.filter(doc => doc.date >= filter.startDate && doc.date <= filter.endDate);
 
         });
-        const response;
+        var response;
         console.log(results);
         if (results) {
             response = results[0].description;
