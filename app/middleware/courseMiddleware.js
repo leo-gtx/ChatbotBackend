@@ -31,9 +31,9 @@ var CourseMiddleware = {
                 res.json(err);
             }
             docs = docs.filter(doc => doc.date >= filter.startDate && doc.date <= filter.endDate);
-            console.table(docs);
 
         });
+        console.table(results);
         var response;
         if (results) {
             response = results.description;
