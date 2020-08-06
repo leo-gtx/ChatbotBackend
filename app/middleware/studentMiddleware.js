@@ -1,4 +1,4 @@
-var Student = require('../model/StudentModel');
+var Student = require('../model/studentModel');
 
 
 var StudentMiddleware = {

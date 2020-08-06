@@ -37,8 +37,9 @@ AdminBro.registerAdapter(require('admin-bro-mongoose'))
 var app = express();
 app.use(formidableMiddleware());
 //Body parser for parssing request
-app.use(bodyParser.json());
+app.use(bodyParser.json({ type: 'application/*+json' }));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.raw());
 //Configure Routes
 app.use(config.API_PATH, chatbotRoutes());
 app.use(config.API_PATH, universityRoutes());

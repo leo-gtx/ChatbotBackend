@@ -18,6 +18,7 @@ var CourseMiddleware = {
     },
     find: async(req, res) => {
         console.log('Received post request for course');
+        req.body = req.fields;
         if (!req.body) return res.sendStatus(400);
         res.setHeader('Content-Type', 'application/json');
         console.log('Get course from Dialogflow ' + req.body.queryResult.parameters['date-period']);
@@ -32,7 +33,7 @@ var CourseMiddleware = {
             docs = docs.filter(doc => doc.date >= filter.startDate && doc.date <= filter.endDate);
 
         });
-        const response = " ";
+        const response = "This is the query results : ";
 
         const responseObj = {
             fulfillmentText: response,

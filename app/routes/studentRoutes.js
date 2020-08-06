@@ -1,5 +1,5 @@
 var express = require('express');
-var StudentMiddleware = require('../middleware/StudentMiddleware');
+var StudentMiddleware = require('../middleware/studentMiddleware');
 
 var StudentRoutes = function(app) {
     var router = express.Router();
