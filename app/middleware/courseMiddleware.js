@@ -37,7 +37,8 @@ var CourseMiddleware = {
         if (results) {
             response += "This is what i've found: \n "
             results.forEach((item) => {
-                response += item.description + "\n";
+                response += item.description + ".\n";
+                response += "This timetable is available for the " + item.date.toDateString()
             });
 
         } else {
