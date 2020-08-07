@@ -14,7 +14,43 @@ var EventMiddleware = {
         });
     },
     find: async(req, res) => {
-        //Event find
+        req.body = req.fields;
+        if (!req.body) return res.sendStatus(400);
+        res.setHeader('Content-Type', 'application/json');
+        console.log("Get events from Dialogflow post request handled.");
+        var filter = {
+            semester: req.fields.queryResult.parameters['ordinal']
+        }
+        var results = Event.find(filter, null, { sort: 'date' }, function(err, docs) {
+            if (err) {
+                res.json(err);
+            }
+            docs = docs.filter(item => item.date >= Date());
+        });
+
+        var response = "";
+        if (results) {
+            response = "This is what i've found: \n";
+            results.forEach((item) => {
+                response += item.description + "\n for the " + item.date;
+            });
+        } else {
+            response = "I have no result for this query";
+        }
+
+        const responseObj = {
+            fulfillmentMessages: [{
+                text: {
+                    text: [
+                        response
+                    ]
+                }
+            }]
+        }
+        console.log('This is the response to dialogflow');
+        console.log(responseObj);
+        return res.json(responseObj);
+
     }
 }
 module.exports = EventMiddleware;

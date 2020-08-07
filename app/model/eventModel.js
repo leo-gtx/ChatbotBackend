@@ -3,6 +3,7 @@ var Schema = mongoose.Schema;
 
 var eventSchema = new Schema({
     description: { type: String, required: true },
+    type: { type: String, required: true },
     date: { type: Date, required: true },
     wroteAt: { type: Date, default: Date.now() },
     department: { type: Schema.Types.ObjectId, ref: 'department' },
