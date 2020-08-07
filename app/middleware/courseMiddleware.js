@@ -35,7 +35,7 @@ var CourseMiddleware = {
         });
         var response = "";
         if (results) {
-            response += "You will have: \n "
+            response += "This is what i found: \n "
             results.forEach((item) => {
                 response += item.description + "\n";
             });
