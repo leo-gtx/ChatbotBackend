@@ -9,6 +9,7 @@ var Webhook = function(req, res) {
 
     if (req.fields.queryResult.intent.displayName.toLowerCase().indexOf('event') > -1) {
         if (req.fields.queryResult.intent.displayName.toLowerCase().indexOf('exams') > -1) {
+            req.params = { type: 'exam' };
             EventMiddleware.find(req, res);
         }
     }

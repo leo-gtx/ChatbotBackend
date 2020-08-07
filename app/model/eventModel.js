@@ -3,6 +3,7 @@ var Schema = mongoose.Schema;
 
 var eventSchema = new Schema({
     description: { type: String, required: true },
+    semester: { type: Number, default: 1 },
     type: { type: String, required: true },
     date: { type: Date, required: true },
     wroteAt: { type: Date, default: Date.now() },
