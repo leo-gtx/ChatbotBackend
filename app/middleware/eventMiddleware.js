@@ -22,21 +22,20 @@ var EventMiddleware = {
             type: req.params.type,
             semester: req.body.queryResult.parameters['semester']
         }
-        var results = Event.find(filter, null, { sort: 'date' }, function(err, docs) {
+        var results = await Event.find(filter, null, { sort: 'date' }, function(err, docs) {
             if (err) {
                 res.json(err);
             }
-            docs = docs.filter(item => item.date >= Date.now);
+            docs = docs.filter((item) => item.date >= Date.now());
         });
-
         var response = "";
         if (results) {
-            response = "This is what i've found: \n";
+            response = "This is the results that i've found: \n ";
             results.forEach((item) => {
-                response += item.description + "\n for the " + item.date;
+                response += item.description + " \n for the " + item.date.toDateString();
             });
         } else {
-            response = "I have no result for this query";
+            response = "There is no result for this query";
         }
 
         const responseObj = {

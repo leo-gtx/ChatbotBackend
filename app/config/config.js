@@ -14,8 +14,8 @@ var config = {
      * Get DB Connection String for connecting to MongoDB database
      */
     getDBString: function() {
-        return process.env.MONGODB_URI || 'mongodb://' + this.DB.HOST + ':' + this.DB.PORT + '/' + this.DB.DATABASE;
-
+        //return process.env.MONGODB_URI || 'mongodb://' + this.DB.HOST + ':' + this.DB.PORT + '/' + this.DB.DATABASE;
+        return 'mongodb+srv://leo-gtx:mongodbpassword@chatbotcluster.kqj9j.mongodb.net/StudentInformationDB?retryWrites=true&w=majority'
     },
     /*
      * Get the http URLGoalKicker.com – Node.js Notes for Professionals 184
