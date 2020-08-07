@@ -18,6 +18,7 @@ const University = require('./app/model/universityModel');
 const Exam = require('./app/model/examModel');
 const Results = require('./app/model/resultsModel');
 const StudentInfo = require('./app/model/studentInfoModel');
+const Event = require('./app/model/eventModel');
 
 //Import custom modules
 var chatbotRoutes = require('./app/routes/chatbotRoutes');
@@ -52,7 +53,7 @@ app.use(config.API_PATH, eventRoutes());
 //AdminBro configuration
 // Pass all configuration settings to AdminBro
 const adminBro = new AdminBro({
-        resources: [User, Department, Student, Course, Activity, University, Exam, Results, StudentInfo],
+        resources: [User, Department, Student, Course, Activity, University, Exam, Results, StudentInfo, Event],
         rootPath: '/admin',
     })
     // Build and use a router which will handle all AdminBro routes
