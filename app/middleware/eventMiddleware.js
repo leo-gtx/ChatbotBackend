@@ -20,7 +20,7 @@ var EventMiddleware = {
         console.log("Get events from Dialogflow post request handled.");
         var filter = {
             type: req.params.type,
-            semester: req.fields.queryResult.parameters['semester']
+            semester: req.body.queryResult.parameters['semester']
         }
         var results = Event.find(filter, null, { sort: 'date' }, function(err, docs) {
             if (err) {
