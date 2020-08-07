@@ -20,13 +20,13 @@ var EventMiddleware = {
         console.log("Get events from Dialogflow post request handled.");
         var filter = {
             type: req.params.type,
-            semester: req.fields.queryResult.parameters['ordinal']
+            semester: req.fields.queryResult.parameters['semester']
         }
         var results = Event.find(filter, null, { sort: 'date' }, function(err, docs) {
             if (err) {
                 res.json(err);
             }
-            docs = docs.filter(item => item.date >= Date());
+            docs = docs.filter(item => item.date >= Date.now);
         });
 
         var response = "";
