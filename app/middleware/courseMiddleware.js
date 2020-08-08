@@ -26,13 +26,15 @@ var CourseMiddleware = {
             startDate: req.body.queryResult.parameters['date-period'].startDate,
             endDate: req.body.queryResult.parameters['date-period'].endDate
         }
-        var results = await Course.find({}, null, { sort: '-wroteAt' }, function(err, docs) {
+        var results = await Course.find({ date: { $gte: filter.startDate, $lte: filter.endDate } }, null, { sort: '-wroteAt' }, function(err, docs) {
 
             if (err) {
                 res.json(err);
             }
-            docs = docs.filter(doc => doc.date >= filter.startDate && doc.date <= filter.endDate);
+            //docs = docs.filter(doc => doc.date >= filter.startDate && doc.date <= filter.endDate);
+
         });
+
         var response = "";
         if (results) {
             response += "This is what i've found: \n "

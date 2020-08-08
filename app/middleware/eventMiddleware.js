@@ -20,13 +20,13 @@ var EventMiddleware = {
         console.log("Get events from Dialogflow post request handled.");
         var filter = {
             type: 'exam',
-            semester: req.body.queryResult.parameters['semester']
+            semester: req.body.queryResult.parameters['semester'],
+            date: { $gte: Date.now() }
         }
         var results = await Event.find(filter, null, { sort: 'date' }, function(err, docs) {
             if (err) {
                 res.json(err);
             }
-            docs = docs.filter((item) => item.date >= Date.now());
         });
         var response = "";
         if (results) {
@@ -59,17 +59,14 @@ var EventMiddleware = {
         console.log("Get events from Dialogflow post request handled.");
         var filter = {
             type: req.body.queryResult.parameters['event'],
-            date: req.body.queryResult.parameters['date-period'] || null,
         }
-        var results = await Event.find(filter.type, null, { sort: 'wroteAt' }, function(err, docs) {
+        if (req.body.queryResult.parameters['date-period']) {
+            filter.push({ date: { $gte: req.body.queryResult.parameters['date-period'].startDate, $lte: req.body.queryResult.parameters['date-period'].endDate } });
+        }
+        var results = await Event.find(filter, null, { sort: 'wroteAt' }, function(err, docs) {
             if (err) {
                 res.json(err);
             }
-
-            if (filter.date) {
-                docs = docs.filter((item) => item.date >= filter.date.startDate && item.date <= filter.date.endDate);
-            }
-
 
         });
         var response = "";

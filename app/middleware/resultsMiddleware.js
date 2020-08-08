@@ -7,13 +7,13 @@ const ResultsMiddleware = {
         res.setHeader('Content-Type', 'application/json');
         console.log("Get results from Dialogflow post request handled.");
         var filter = {
-            semester: req.body.queryResult.parameters['semester']
+            semester: req.body.queryResult.parameters['semester'],
+            date: { $gte: Date.now() }
         }
-        var results = await Results.find({}, null, { sort: 'wroteAt' }, function(err, docs) {
+        var results = await Results.find(filter.date, null, { sort: 'wroteAt' }, function(err, docs) {
                 if (err) {
                     res.json(err);
                 }
-                docs = docs.filter((item) => item.date >= Date.now());
             })
             .populate('exam');
         results = results.filter(item => item.exam.semester === filter.semester);
