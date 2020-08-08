@@ -2,7 +2,8 @@
 var express = require('express'),
     bodyParser = require('body-parser'),
     session = require('express-session'),
-    mongoose = require('mongoose');
+    mongoose = require('mongoose'),
+    bcrypt = require('bcrypt');
 
 //Import plugin
 const formidableMiddleware = require('express-formidable');
@@ -54,7 +55,50 @@ app.use(config.API_PATH, eventRoutes());
 //AdminBro configuration
 // Pass all configuration settings to AdminBro
 const adminBro = new AdminBro({
-        resources: [User, Department, Student, Course, Activity, University, Exam, Results, StudentInfo, Event, Class],
+        resources: [{
+                resource: User,
+                options: {
+                    properties: {
+                        encryptedPassword: {
+                            isVisible: false,
+                        },
+                        password: {
+                            type: 'string',
+                            isVisible: {
+                                list: false,
+                                edit: true,
+                                filter: false,
+                                show: false,
+                            },
+                        },
+                    },
+                    actions: {
+                        new: {
+                            before: async(request) => {
+                                if (request.payload.record.password) {
+                                    request.payload.record = {
+                                        ...request.payload.record,
+                                        encryptedPassword: await bcrypt.hash(request.payload.record.password, 10),
+                                        password: undefined,
+                                    }
+                                }
+                                return request
+                            },
+                        }
+                    }
+                }
+
+            },
+            Department,
+            Student,
+            Course,
+            Activity,
+            University,
+            Exam,
+            Results,
+            Event,
+            Class
+        ],
         rootPath: '/admin',
     })
     // Build and use a router which will handle all AdminBro routes
