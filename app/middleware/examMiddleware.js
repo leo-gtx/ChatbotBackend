@@ -9,14 +9,14 @@ const ExamMiddleware = {
         var filter = {
             semester: req.body.queryResult.parameters['semester']
         }
-        var results = await Exam.find(filter.semester, null, { sort: 'wroteAt' }, function(err, docs) {
+        var results = await Exam.find(filter, null, { sort: 'wroteAt' }, function(err, docs) {
             if (err) {
                 res.json(err);
             }
         });
         var response = "";
         if (results && results.length > 0) {
-            response = "This is the timetable for semester $semester: \n ";
+            response = "This is the timetable for the semester " + filter.semester + ": \n ";
             results.forEach((item) => {
                 response += item.description;
                 response += " \n ";
