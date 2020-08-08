@@ -6,7 +6,7 @@ var studentSchema = new Schema({
     password: { type: String, required: true },
     username: { type: String, required: true },
     lastLogin: { type: Date, default: Date.now() },
-    department: { type: Schema.Types.ObjectId, ref: 'department' }
+    class: { type: Schema.Types.ObjectId, ref: 'class' }
 });
 var studentModel;
 if (mongoose.models.student)

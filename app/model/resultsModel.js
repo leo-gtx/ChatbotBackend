@@ -5,10 +5,10 @@ var resultsSchema = new Schema({
     description: { type: String, required: true },
     wroteAt: { type: Date, default: Date.now() },
     exam: { type: Schema.Types.ObjectId, ref: 'exam' },
-    files: [{
+    file: {
         name: { type: String, required: true },
         updateAt: { type: Date, default: Date.now() }
-    }]
+    }
 });
 var resultsModel;
 if (mongoose.models.results)

@@ -6,7 +6,7 @@ var courseSchema = new Schema({
     wroteAt: { type: Date, default: Date.now() },
     semester: { type: Number, default: 1 },
     date: { type: Date, default: Date.now() },
-    department: { type: Schema.Types.ObjectId, ref: 'department' },
+    class: { type: Schema.Types.ObjectId, ref: 'class' },
     files: [{
         name: { type: String, required: true },
         updateAt: { type: Date, default: Date.now() }

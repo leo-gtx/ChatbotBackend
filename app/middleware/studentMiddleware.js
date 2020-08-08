@@ -26,7 +26,12 @@ var StudentMiddleware = {
                 }
 
             })
-            .populate('department');
+            .populate({
+                path: 'class',
+                populate: {
+                    path: 'department'
+                }
+            });
 
         res.json({
             message: 'success',
