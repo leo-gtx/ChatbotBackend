@@ -21,7 +21,7 @@ var EventMiddleware = {
         var filter = {
             type: 'exam',
             semester: req.body.queryResult.parameters['semester'],
-            date: { $gte: Date.now() }
+            //date: { $gte: new Date(Date.now()) }
         }
         var results = await Event.find(filter, null, { sort: 'date' }, function(err, docs) {
             if (err) {
@@ -70,7 +70,7 @@ var EventMiddleware = {
 
         });
         var response = "";
-        if (results) {
+        if (results && results.length > 0) {
             response = "This is the results that i've found: \n ";
             results.forEach((item) => {
                 response += item.description + " \n - " + item.date.toDateString() + ". \n";

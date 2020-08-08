@@ -31,12 +31,11 @@ var CourseMiddleware = {
             if (err) {
                 res.json(err);
             }
-            //docs = docs.filter(doc => doc.date >= filter.startDate && doc.date <= filter.endDate);
 
         });
 
         var response = "";
-        if (results) {
+        if (results && results.length > 0) {
             response += "This is what i've found: \n "
             results.forEach((item) => {
                 response += item.description + ".\n";

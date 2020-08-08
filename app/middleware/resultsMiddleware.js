@@ -8,21 +8,21 @@ const ResultsMiddleware = {
         console.log("Get results from Dialogflow post request handled.");
         var filter = {
             semester: req.body.queryResult.parameters['semester'],
-            date: { $gte: Date.now() }
+            //date: { $gte: Date.now() }
         }
-        var results = await Results.find(filter.date, null, { sort: 'wroteAt' }, function(err, docs) {
+        var results = await Results.find({}, null, { sort: 'wroteAt' }, function(err, docs) {
                 if (err) {
                     res.json(err);
                 }
             })
             .populate('exam');
-        results = results.filter(item => item.exam.semester === filter.semester);
+        results = results.filter(item => item.exam.semester == filter.semester);
 
         var response = "";
-        if (results) {
+        if (results && results.length > 0) {
             response = "This is the results that i've found: \n ";
             results.forEach((item) => {
-                response += "For " + item.exam.description + " : \n " + item.description;
+                response += item.description;
                 response += " \n ";
             });
         } else {

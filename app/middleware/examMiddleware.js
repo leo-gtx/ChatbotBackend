@@ -15,7 +15,7 @@ const ExamMiddleware = {
             }
         });
         var response = "";
-        if (results) {
+        if (results && results.length > 0) {
             response = "This is the timetable for semester $semester: \n ";
             results.forEach((item) => {
                 response += item.description;
