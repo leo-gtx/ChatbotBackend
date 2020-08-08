@@ -18,7 +18,7 @@ const Activity = require('./app/model/activityModel');
 const University = require('./app/model/universityModel');
 const Exam = require('./app/model/examModel');
 const Results = require('./app/model/resultsModel');
-//const StudentInfo = require('./app/model/studentInfoModel');
+const StudentInfo = require('./app/model/studentInfoModel');
 const Event = require('./app/model/eventModel');
 const Class = require('./app/model/classModel');
 
@@ -56,7 +56,7 @@ app.use(config.API_PATH, eventRoutes());
 // Pass all configuration settings to AdminBro
 const adminBro = new AdminBro({
         resources: [{
-                resource: Student,
+                resource: User,
                 options: {
                     properties: {
                         encryptedPassword: {
@@ -90,7 +90,7 @@ const adminBro = new AdminBro({
 
             },
             Department,
-            User,
+            Student,
             Course,
             Activity,
             University,
