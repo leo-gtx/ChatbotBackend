@@ -29,10 +29,11 @@ var EventMiddleware = {
             }
         });
         var response = "";
-        if (results) {
+        if (results && results.length() > 0) {
             response = "This is the results that i've found: \n ";
             results.forEach((item) => {
                 response += item.description + " \n should stand the " + item.date.toDateString();
+                response += " \n";
             });
         } else {
             response = "There is no result for this query";
@@ -61,7 +62,7 @@ var EventMiddleware = {
             type: req.body.queryResult.parameters['event'],
         }
         if (req.body.queryResult.parameters['date-period']) {
-            filter.push({ date: { $gte: req.body.queryResult.parameters['date-period'].startDate, $lte: req.body.queryResult.parameters['date-period'].endDate } });
+            filter.date = { $gte: req.body.queryResult.parameters['date-period'].startDate, $lte: req.body.queryResult.parameters['date-period'].endDate };
         }
         var results = await Event.find(filter, null, { sort: 'wroteAt' }, function(err, docs) {
             if (err) {
