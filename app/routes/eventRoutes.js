@@ -8,9 +8,6 @@ var EventRoutes = function(app) {
     router.route('/events/all')
         .get(EventMiddleware.findAll);
 
-    router.route('/event')
-        .get(EventMiddleware.find);
-
     return router;
 }
 module.exports = EventRoutes;
