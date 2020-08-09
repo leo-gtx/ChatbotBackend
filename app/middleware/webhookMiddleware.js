@@ -3,7 +3,7 @@ const EventMiddleware = require('../middleware/eventMiddleware');
 const ResultsMiddleware = require('../middleware/resultsMiddleware');
 const ExamMiddleware = require('../middleware/examMiddleware');
 const ActivityMiddleware = require('../middleware/activityMiddleware');
-const Student = require('../model/studentModel');
+//const Student = require('../model/studentModel');
 const jwt = require('jsonwebtoken');
 const SECRET_KEY = require('../keys/keys');
 var Webhook = function(req, res) {
@@ -12,7 +12,7 @@ var Webhook = function(req, res) {
     if (req.session.token) {
         token = req.session.token;
     }
-    const student = jwt.verify(JSON.stringify(token), SECRET_KEY);
+    const student = jwt.verify(token, SECRET_KEY);
 
     if (student) {
         //Infer it into the req.query
