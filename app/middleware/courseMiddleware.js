@@ -18,7 +18,7 @@ var CourseMiddleware = {
     },
     find: async(req, res) => {
         console.log('Received post request for course');
-        req.body = req.fields;
+        //req.body = req.fields;
         if (!req.body) return res.sendStatus(400);
         res.setHeader('Content-Type', 'application/json');
         console.log('Get course from Dialogflow ' + req.body.queryResult.parameters['date-period']);

@@ -73,7 +73,7 @@ var Chatbot = function(req, res) {
             );
             // Use the context from this response for next queries
             context = intentResponse.queryResult.outputContexts;
-
+            //console.log(intentResponse.queryResult);
             //Send the reply to the client 
             res.header('Access-Control-Allow-Origin', '*');
             res.json({

@@ -2,7 +2,7 @@ const Activity = require('../model/activityModel');
 
 const ActivityMiddleware = {
     find: async(req, res) => {
-        req.body = req.fields;
+        //req.body = req.fields;
         if (!req.body) return res.sendStatus(400);
         res.setHeader('Content-Type', 'application/json');
         console.log("Get activity from Dialogflow post request handled.");

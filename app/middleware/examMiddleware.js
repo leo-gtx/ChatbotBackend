@@ -2,7 +2,7 @@ const Exam = require('../model/examModel');
 
 const ExamMiddleware = {
     find: async(req, res) => {
-        req.body = req.fields;
+        //req.body = req.fields;
         if (!req.body) return res.sendStatus(400);
         res.setHeader('Content-Type', 'application/json');
         console.log("Get exams from Dialogflow post request handled.");

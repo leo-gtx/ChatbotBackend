@@ -42,7 +42,6 @@ var StudentMiddleware = {
         });
     },
     login: async(req, res) => {
-        console.log('Login');
         const { email, password } = req.body;
         //console.log(req);
         var user = await Student.findOne({ email: email, encryptedPassword: password }, function(err, doc) {

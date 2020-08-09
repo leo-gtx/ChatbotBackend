@@ -38,14 +38,14 @@ var config = require('./app/config/config');
 AdminBro.registerAdapter(require('admin-bro-mongoose'))
     //Create a new Express application and Configure it
 var app = express();
-//app.use(formidableMiddleware());
+
 app.use(session({ secret: 'jasper-cookie' }));
 
 //Body parser for parssing request
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json({ type: 'application/*+json' }));
+app.use(bodyParser.json({ type: 'application/json' }));
 app.use(bodyParser.raw());
-
+//app.use(formidableMiddleware());
 //Configure Routes
 app.use(config.API_PATH, chatbotRoutes());
 app.use(config.API_PATH, universityRoutes());
