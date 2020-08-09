@@ -7,7 +7,8 @@ const projectId = 'jasper-dvrtid';
 const sessionId = uuid.v4();
 
 var Chatbot = function(req, res) {
-
+    //Store token
+    req.session.token = req.body.token;
     // queries: A set of sequential queries to be send to Dialogflow agent for Intent Detection
     const query = req.body.MSG;
     // languageCode: Indicates the language Dialogflow agent should use to detect intents

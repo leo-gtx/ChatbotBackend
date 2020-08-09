@@ -16,7 +16,7 @@ const ResultsMiddleware = {
                 }
             })
             .populate('exam');
-        results = results.filter(item => item.exam.semester == filter.semester);
+        results = results.filter(item => item.exam.semester == filter.semester && item.exam.class == req.query.student.class._id);
 
         var response = "";
         if (results && results.length > 0) {

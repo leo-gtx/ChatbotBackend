@@ -24,9 +24,10 @@ var CourseMiddleware = {
         console.log('Get course from Dialogflow ' + req.body.queryResult.parameters['date-period']);
         var filter = {
             startDate: req.body.queryResult.parameters['date-period'].startDate,
-            endDate: req.body.queryResult.parameters['date-period'].endDate
+            endDate: req.body.queryResult.parameters['date-period'].endDate,
+            class: req.query.student.class._id
         }
-        var results = await Course.find({ date: { $gte: filter.startDate, $lte: filter.endDate } }, null, { sort: '-wroteAt' }, function(err, docs) {
+        var results = await Course.find({ class: filter.class, date: { $gte: filter.startDate, $lte: filter.endDate } }, null, { sort: '-wroteAt' }, function(err, docs) {
 
             if (err) {
                 res.json(err);

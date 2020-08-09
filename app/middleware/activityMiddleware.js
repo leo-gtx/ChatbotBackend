@@ -6,7 +6,10 @@ const ActivityMiddleware = {
         if (!req.body) return res.sendStatus(400);
         res.setHeader('Content-Type', 'application/json');
         console.log("Get activity from Dialogflow post request handled.");
-        var results = await Activity.find({}, null, { sort: 'wroteAt' }, function(err, docs) {
+        var filter = {
+            department: req.query.student.class.department._id
+        }
+        var results = await Activity.find(filter, null, { sort: 'wroteAt' }, function(err, docs) {
             if (err) {
                 res.json(err);
             }

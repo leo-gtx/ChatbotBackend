@@ -21,7 +21,8 @@ var EventMiddleware = {
         var filter = {
             type: 'exam',
             semester: req.body.queryResult.parameters['semester'],
-            //date: { $gte: new Date(Date.now()) }
+            department: req.query.student.class.department._id
+                //date: { $gte: new Date(Date.now()) }
         }
         var results = await Event.find(filter, null, { sort: 'date' }, function(err, docs) {
             if (err) {
@@ -60,6 +61,7 @@ var EventMiddleware = {
         console.log("Get events from Dialogflow post request handled.");
         var filter = {
             type: req.body.queryResult.parameters['event'],
+            department: req.query.student.class.department._id
         }
         if (req.body.queryResult.parameters['date-period']) {
             filter.date = { $gte: req.body.queryResult.parameters['date-period'].startDate, $lte: req.body.queryResult.parameters['date-period'].endDate };

@@ -1,5 +1,7 @@
-var Student = require('../model/studentModel');
-
+const Student = require('../model/studentModel');
+const jwt = require('jsonwebtoken');
+const SECRET_KEY = require('../keys/keys');
+const bcrypt = require('bcrypt');
 
 var StudentMiddleware = {
 
@@ -38,6 +40,54 @@ var StudentMiddleware = {
             description: 'Student found!',
             results: results
         });
+    },
+    login: async(req, res) => {
+        console.log('Login');
+        const { email, password } = req.body;
+        //console.log(req);
+        var user = await Student.findOne({ email: email, encryptedPassword: password }, function(err, doc) {
+                if (err) {
+                    res.json(err);
+                }
+            })
+            .populate({
+                path: 'class',
+                populate: {
+                    path: 'department'
+                }
+            });
+        //console.log(user);
+
+        try {
+            if (user) {
+                const token = jwt.sign(JSON.stringify(user), SECRET_KEY);
+                user.token = token;
+                //Store Token in db
+                Student.findOneAndUpdate({ email: user.email }, { token: user.token, lastLogin: Date.now() }, function(err, doc) {
+                    if (err) {
+                        res.json(err);
+                    }
+                });
+                //Send Student details
+
+                res.json({
+                    success: true,
+                    description: 'Student authenticated!',
+                    results: user
+                });
+            }
+            res.json({
+                success: false,
+                description: 'Email or password is wrong!'
+            });
+
+
+        } catch (e) {
+            console.log('e:', e);
+            return null
+        }
+
+
     }
 }
 module.exports = StudentMiddleware;

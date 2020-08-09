@@ -1,8 +1,8 @@
 //Import Libraries
 var express = require('express'),
     bodyParser = require('body-parser'),
-    session = require('express-session'),
     mongoose = require('mongoose'),
+    session = require('express-session'),
     bcrypt = require('bcrypt');
 
 //Import plugin
@@ -18,7 +18,7 @@ const Activity = require('./app/model/activityModel');
 const University = require('./app/model/universityModel');
 const Exam = require('./app/model/examModel');
 const Results = require('./app/model/resultsModel');
-const StudentInfo = require('./app/model/studentInfoModel');
+//const StudentInfo = require('./app/model/studentInfoModel');
 const Event = require('./app/model/eventModel');
 const Class = require('./app/model/classModel');
 
@@ -38,11 +38,14 @@ var config = require('./app/config/config');
 AdminBro.registerAdapter(require('admin-bro-mongoose'))
     //Create a new Express application and Configure it
 var app = express();
-app.use(formidableMiddleware());
+//app.use(formidableMiddleware());
+app.use(session({ secret: 'jasper-cookie' }));
+
 //Body parser for parssing request
-app.use(bodyParser.json({ type: 'application/*+json' }));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json({ type: 'application/*+json' }));
 app.use(bodyParser.raw());
+
 //Configure Routes
 app.use(config.API_PATH, chatbotRoutes());
 app.use(config.API_PATH, universityRoutes());
@@ -52,11 +55,12 @@ app.use(config.API_PATH, userRoutes());
 app.use(config.API_PATH, courseRoutes());
 app.use(config.API_PATH, eventRoutes());
 
+
 //AdminBro configuration
 // Pass all configuration settings to AdminBro
 const adminBro = new AdminBro({
         resources: [{
-                resource: User,
+                resource: Student,
                 options: {
                     properties: {
                         encryptedPassword: {
@@ -90,7 +94,7 @@ const adminBro = new AdminBro({
 
             },
             Department,
-            Student,
+            User,
             Course,
             Activity,
             University,

@@ -7,7 +7,8 @@ const ExamMiddleware = {
         res.setHeader('Content-Type', 'application/json');
         console.log("Get exams from Dialogflow post request handled.");
         var filter = {
-            semester: req.body.queryResult.parameters['semester']
+            semester: req.body.queryResult.parameters['semester'],
+            class: req.query.student.class._id
         }
         var results = await Exam.find(filter, null, { sort: 'wroteAt' }, function(err, docs) {
             if (err) {

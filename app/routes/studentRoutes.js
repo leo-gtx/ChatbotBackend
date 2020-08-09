@@ -4,12 +4,11 @@ var StudentMiddleware = require('../middleware/studentMiddleware');
 var StudentRoutes = function(app) {
     var router = express.Router();
 
-
     router.route('/student')
         .post(StudentMiddleware.find);
 
-    router.route('/students/all')
-        .get(StudentMiddleware.findAll);
+    router.route('/student/login')
+        .post(StudentMiddleware.login);
 
     return router;
 }
