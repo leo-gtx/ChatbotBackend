@@ -63,7 +63,7 @@ var StudentMiddleware = {
                 const token = jwt.sign(JSON.stringify(user), SECRET_KEY);
                 user.token = token;
                 //Store Token in db
-                Student.findOneAndUpdate({ email: user.email }, { token: user.token, lastLogin: Date.now() }, function(err, doc) {
+                Student.findOneAndUpdate({ email: user.email }, { lastLogin: Date.now() }, function(err, doc) {
                     if (err) {
                         res.json(err);
                     }
