@@ -11,7 +11,7 @@ var Webhook = function(req, res) {
     //get the student by token
     var token;
     var student;
-    //console.log(req.session);
+    console.log(req.session);
     if (req.session.token) {
         token = req.session.token;
         student = jwt.verify(token, SECRET_KEY);
