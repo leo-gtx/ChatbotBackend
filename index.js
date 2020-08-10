@@ -39,7 +39,7 @@ AdminBro.registerAdapter(require('admin-bro-mongoose'))
     //Create a new Express application and Configure it
 var app = express();
 
-app.use(session({ secret: 'jasper-cookie' }));
+app.use(session({ secret: 'jasper-cookie', saveUninitialized: true, resave: true }));
 
 //Body parser for parssing request
 app.use(bodyParser.urlencoded({ extended: true }));
