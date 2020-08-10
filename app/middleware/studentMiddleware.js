@@ -67,7 +67,9 @@ var StudentMiddleware = {
                         res.json(err);
                     }
                 });
-                //Send Student details
+                //Store in session
+                req.session.token = user.token
+                    //Send Student details
 
                 res.json({
                     success: true,
