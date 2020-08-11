@@ -9,12 +9,11 @@ const SECRET_KEY = require('../keys/keys');
 var Webhook = function(req, res) {
     //console.log(req.body);
     //get the student by token
-    var token;
     var student;
-    console.log(req.session);
-    if (req.session.token) {
-        token = req.session.token;
-        student = jwt.verify(token, SECRET_KEY);
+    console.log(req.body.queryResult.parameters);
+    if (req.body.queryResult.parameters['accessToken']) {
+        const token = req.body.queryResult.parameters['accessToken'];
+         student = jwt.verify(token, SECRET_KEY);
     }
 
 

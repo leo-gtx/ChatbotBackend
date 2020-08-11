@@ -18,6 +18,8 @@ var StudentMiddleware = {
         });
     },
     find: async(req, res) => {
+        if (!req.body) return res.sendStatus(400);
+        res.setHeader('Content-Type', 'application/json');
         var filter = {
             'email': req.body.email,
             'password': req.body.password
