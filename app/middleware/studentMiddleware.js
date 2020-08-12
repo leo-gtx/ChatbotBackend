@@ -57,7 +57,7 @@ var StudentMiddleware = {
                     path: 'department'
                 }
             });
-        //console.log(user);
+        console.log(user);
 
         try {
             if (user) {
@@ -69,9 +69,8 @@ var StudentMiddleware = {
                         res.json(err);
                     }
                 });
-                //Store in session
-                req.session.token = user.token
-                    //Send Student details
+                console.log(token);
+                //Send Student details
 
                 res.json({
                     success: true,
