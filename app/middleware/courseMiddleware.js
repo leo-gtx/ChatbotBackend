@@ -48,6 +48,7 @@ var CourseMiddleware = {
         }
 
         const responseObj = {
+            fulfillmentText: response,
             fulfillmentMessages: [{
                 text: {
                     text: [
@@ -57,7 +58,7 @@ var CourseMiddleware = {
             }]
         }
         console.log('This is the response to dialogflow');
-        console.table(responseObj);
+        console.log(responseObj);
         return res.json(responseObj);
     }
 }
