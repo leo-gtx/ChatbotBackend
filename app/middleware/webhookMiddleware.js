@@ -10,7 +10,7 @@ var Webhook = function(req, res) {
     //console.log(req.body);
     //get the student by token
     var student;
-    const token = req.body.queryResult.outputContexts.parameters.AccessToken;
+    const token = req.body.queryResult.outputContexts[0].parameters.AccessToken;
     console.log(req.body.queryResult.outputContexts);
     if (token) {
         student = jwt.verify(token, SECRET_KEY);
