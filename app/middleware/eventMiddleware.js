@@ -78,10 +78,8 @@ var EventMiddleware = {
         if (results && results.length > 0) {
             response = "This is the results that i've found: \n ";
             results.forEach((item) => {
-                response += item.description + " \n - " + item.date.toDateString() + ". \n";
+                response += item.date.toDateString() + " : " + item.description + " \n ";
             });
-        } else {
-            response = "There is no result for this query";
         }
 
         const responseObj = {
