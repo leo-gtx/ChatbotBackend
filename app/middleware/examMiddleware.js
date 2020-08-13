@@ -27,6 +27,7 @@ const ExamMiddleware = {
         }
 
         const responseObj = {
+            fulfillmentText: response,
             fulfillmentMessages: [{
                 text: {
                     text: [

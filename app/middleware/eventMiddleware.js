@@ -41,7 +41,9 @@ var EventMiddleware = {
         }
 
         const responseObj = {
+            fulfillmentText: response,
             fulfillmentMessages: [{
+
                 text: {
                     text: [
                         response
@@ -83,6 +85,7 @@ var EventMiddleware = {
         }
 
         const responseObj = {
+            fulfillmentText: response,
             fulfillmentMessages: [{
                 text: {
                     text: [

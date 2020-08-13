@@ -26,6 +26,7 @@ const ActivityMiddleware = {
         }
 
         const responseObj = {
+            fulfillmentText: response,
             fulfillmentMessages: [{
                 text: {
                     text: [

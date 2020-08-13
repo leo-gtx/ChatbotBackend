@@ -30,6 +30,7 @@ const ResultsMiddleware = {
         }
 
         const responseObj = {
+            fulfillmentText: response,
             fulfillmentMessages: [{
                 text: {
                     text: [
