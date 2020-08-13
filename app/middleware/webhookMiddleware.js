@@ -12,8 +12,8 @@ var Webhook = function(req, res) {
     var student;
     var token;
     req.body.queryResult.outputContexts.forEach((context) => {
-        if (context.AccessToken) {
-            token = context.AccessToken
+        if (context.parameters.AccessToken) {
+            token = context.parameters.AccessToken
         }
     })
     console.log(req.body.queryResult.outputContexts);
