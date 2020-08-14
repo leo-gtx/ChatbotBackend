@@ -57,7 +57,7 @@ var StudentMiddleware = {
                     path: 'department'
                 }
             });
-        console.log(user);
+        
 
         try {
             if (user) {
@@ -69,9 +69,8 @@ var StudentMiddleware = {
                         res.json(err);
                     }
                 });
-                console.log(token);
+               console.log(user);
                 //Send Student details
-
                 res.json({
                     success: true,
                     description: 'Student authenticated!',

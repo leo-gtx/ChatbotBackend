@@ -30,7 +30,7 @@ var EventMiddleware = {
             }
         });
         var response = "";
-        if (results && results.length() > 0) {
+        if (results && results.length > 0) {
             response = "This is the results that i've found: \n ";
             results.forEach((item) => {
                 response += item.description + " \n should stand the " + item.date.toDateString();
