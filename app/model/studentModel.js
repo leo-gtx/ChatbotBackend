@@ -6,8 +6,7 @@ var studentSchema = new Schema({
     encryptedPassword: { type: String, required: true },
     username: { type: String, required: true },
     lastLogin: { type: Date, default: Date.now() },
-    class: { type: Schema.Types.ObjectId, ref: 'class' },
-    token: {type: String}
+    class: { type: Schema.Types.ObjectId, ref: 'class' }
 });
 var studentModel;
 if (mongoose.models.student)
