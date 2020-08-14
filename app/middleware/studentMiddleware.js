@@ -63,7 +63,7 @@ var StudentMiddleware = {
             if (user) {
                 const token = jwt.sign(JSON.stringify(user), SECRET_KEY);
                 console.log(token);
-                user.token = token;
+                user.push(token);
                 console.log(user);
                 //Store Token in db
                 Student.findOneAndUpdate({ email: user.email }, { lastLogin: Date.now() }, function(err, doc) {
@@ -71,7 +71,6 @@ var StudentMiddleware = {
                         res.json(err);
                     }
                 });
-               console.log(user);
                 //Send Student details
                 res.json({
                     success: true,
