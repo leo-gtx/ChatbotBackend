@@ -61,13 +61,7 @@ var StudentMiddleware = {
 
         try {
             if (user) {
-                const token = jwt.sign(JSON.stringify(user), SECRET_KEY);
-                console.log(token);
-                user = {
-                    ...user,
-                    token: token
-                }
-                console.log(user);
+                const token = {token: jwt.sign(JSON.stringify(user), SECRET_KEY)};
                 //Store Token in db
                 Student.findOneAndUpdate({ email: user.email }, { lastLogin: Date.now() }, function(err, doc) {
                     if (err) {
@@ -78,7 +72,7 @@ var StudentMiddleware = {
                 res.json({
                     success: true,
                     description: 'Student authenticated!',
-                    results: user
+                    results: token
                 });
             }
             res.json({
