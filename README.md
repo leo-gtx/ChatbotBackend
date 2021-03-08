@@ -4,7 +4,8 @@ This is a third part nodejs backend that allows to online ai chatbot buid with d
 ## Specifications
 - Admin's dashboard to fullfill information about school and student
 - Answer about timetable, course, exams, activities, etc.
-## requirement run: npm install
-User dashboard to create your own user, this required a user token to access, so login yourself first.
+## requirement
+- run: npm install
+- Use admin's dashboard to create your own user, this required a user token to access, so login yourself first.
 
 ### Enjoy and Feel free to use it for your own purpose
